@@ -1,0 +1,58 @@
+The three dots (…) notation referred to as the Spread syntax has been part of React for 
+a long time when it could be used via transpilation, although, it has been made a part of 
+JavaScript as part of the ES2015 syntax.
+
+The Spread syntax is used to deconstruct an array or object into separate variables 
+where the exact number of elements in the array may not be known or when we wish to 
+keep an attribute or a set of attributes separate from the entire object.
+
+The following can be performed using the spread syntax:
+
+1. Passing attributes: An object can directly be passed to a component instead
+ of passing each data value in the object separately.
+
+values:{
+    height: 20,
+    width: 10
+}
+
+<Image {...values} source="Image_Source">
+
+// This same as the following:
+<Image height={values.height} 
+width={values.width} source="Image_Source">
+
+
+
+
+2. Inheriting an Object: When creating a new object that inherits another object we can
+ use the Spread syntax to inherit the parent object.
+
+object1:{
+    a: 10,
+    b: 20
+};
+
+object2:{
+    ...object1,
+    c: 14
+};
+
+
+3. Concatenate Arrays: We can also concatenate arrays using the Spread syntax as follows.
+
+var first =[1, 2, 3];
+var second = [2, 3, 4, 5];
+var third = [...first, ...second];
+
+
+
+4. Destructuring Arrays: Destructuring an array into separate components can also be performed
+ using the Spread Syntax.
+
+var original = [1,2,3,4,5,6,7];
+var [first, ...remaining] = original;
+
+// Therefore the following will be the values of first and remaining.
+first = [1]  
+remaining = [2,3,4,5,6,7]

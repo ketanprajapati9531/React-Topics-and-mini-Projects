@@ -1,0 +1,29 @@
+Install NodeJS and NPM:
+Go to https://nodejs.org/en/
+Download the latest version of NodeJS LTS with Administrator privileges.
+
+Install Visual Studio Code:
+
+Go to https://code.visualstudio.com/
+Downloaded the latest version.
+Run VS Code.
+
+It should recommend installing Git. We should Skip this part for now.
+
+To Create React App 
+
+COPY
+npm install -g create-react-app
+If successful, you should be able to get version:
+
+COPY
+create-react-app --version
+Create react project:
+
+COPY
+create-react-app <projectname>
+Run project:
+
+COPY
+cd <projectname>
+npm start

@@ -1,0 +1,8 @@
+PreRequistic for React:-
+
+
+html
+css
+javascript
+Es6 features
+npm

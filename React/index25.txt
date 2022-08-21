@@ -1,0 +1,77 @@
+What are React dev tools?
+React Developer Tools is a Chrome DevTools extension for the open-source React JavaScript
+library. It allows you to inspect the React component hierarchies in the Chrome Developer
+Tools. You will get two new tabs in your Chrome DevTools: "⚛️ Components"
+ and "⚛️ Profiler".
+
+
+ Keys:-
+
+ A “key” is a special string attribute you need to include when creating lists of 
+ elements in React. Keys are used to React to identify which items in the list are 
+ changed, updated, or deleted. In other words, we can say that keys are used to give 
+ an identity to the elements in the lists.
+ 
+ const numbers = [ 1, 2, 3, 4, 5 ];
+
+const updatedNums = numbers.map((number)=>{
+return <li key={index}>{number} </li>;
+});
+
+
+
+
+const numbers = [ 1, 2, 3, 4, 5 ];
+
+const updatedNums = numbers.map((number, index)=>
+<li key = {index}>
+{number}
+</li>
+);
+
+
+Using Keys with Components
+
+Consider a situation where you have created a separate component for list items 
+and you are extracting list items from that component. In that case, you will 
+have to assign keys to the component you are returning from the iterator 
+and not to the list items. That is you should assign keys to <Component /> 
+and not to <li> A good practice to avoid mistakes is to keep in mind that
+ anything you are returning from inside of the map() function is needed to be
+  assigned key. 
+
+Below code shows incorrect usage of keys: 
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+// Component to be extracted
+function MenuItems(props)
+{
+const item = props.item;
+return(
+<li key = {item.toString()}>
+{item}
+</li> 
+);
+}
+           
+// Component that will return an
+// unordered list
+function Navmenu(props)
+{
+const list = props.menuitems;
+const updatedList = list.map((listItems)=>{
+return (
+<MenuItems item = { listItems } />
+ );
+ });
+           
+return(
+<ul>{updatedList}</ul>);
+} 
+const menuItems = [1, 2, 3, 4, 5]; 
+ReactDOM.render(
+<Navmenu menuitems = {
+menuItems} />, 
+document.getElementById('root')
+);
